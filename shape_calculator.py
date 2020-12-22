@@ -22,9 +22,11 @@ class Rectangle:
 
     def get_picture(self):
         outp = ''
-        adding = ('*' * self.width) + '\n'
-        for i in range(self.height):
+        adding = ('*' * self.width)
+        for _ in range(self.height):
             outp += adding
+            if _ < self.height - 1:
+                outp += '\n'
         return outp
 
     def get_amount_inside(self, obj):
@@ -33,6 +35,27 @@ class Rectangle:
         else:
             return self.get_area() / obj.get_area
 
+    def __str__(self):
+        return f'Rectangle(width={self.width}, height={self.height})'
 
-class Square:
-    pass
+
+class Square(Rectangle):
+    def __init__(self, side):
+        super.__init__(side, side)
+        self.width = side
+        self.height = side
+
+    def set_side(self, side):
+        self.width = side
+        self.height = side
+
+    def set_width(self, side):
+        self.width = side
+        self.height = side
+
+    def set_height(self, side):
+        self.width = side
+        self.height = side
+
+    def __str__(self):
+        return f'Square(side={self.height})'
