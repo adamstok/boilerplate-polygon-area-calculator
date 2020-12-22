@@ -33,7 +33,7 @@ class Rectangle:
         if obj.width > self.width or obj.height > self.height:
             return 0
         else:
-            return self.get_area() / obj.get_area
+            return int(self.get_area() / obj.get_area())
 
     def __str__(self):
         return f'Rectangle(width={self.width}, height={self.height})'
@@ -41,7 +41,7 @@ class Rectangle:
 
 class Square(Rectangle):
     def __init__(self, side):
-        super.__init__(side, side)
+        super().__init__(side, side)
         self.width = side
         self.height = side
 
